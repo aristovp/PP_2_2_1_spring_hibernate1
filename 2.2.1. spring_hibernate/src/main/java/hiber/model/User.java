@@ -1,12 +1,13 @@
 package hiber.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
 public class User {
 
-   @OneToOne (optional=false, cascade=CascadeType.ALL)
+   @OneToOne (optional=true, cascade=CascadeType.ALL)
    @JoinColumn (name="car_id")
    private Car car;
    @Id
@@ -60,5 +61,29 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof User)) return false;
+      User user = (User) o;
+      return Objects.equals(getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName()) && Objects.equals(getEmail(), user.getEmail());
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(getFirstName(), getLastName(), getEmail());
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "car=" + car +
+              ", id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              '}';
    }
 }

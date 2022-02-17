@@ -18,9 +18,9 @@ public class MainApp {
 
 
       userService.add(new User("User1", "Lastname1", "user1@mail.ru", (new Car("priora", 5 ))));
-      userService.add(new User("User2", "Lastname2", "user2@mail.ru", (new Car("priora", 7 ))));
+      userService.add(new User("User2", "Lastname2", "user2@mail.ru", (new Car("volvo", 7 ))));
       userService.add(new User("User3", "Lastname3", "user3@mail.ru", (new Car("ferarri", 10 ))));
-      userService.add(new User("User4", "Lastname4", "user4@mail.ru", (new Car("99", 1 ))));
+      userService.add(new User("User4", "Lastname4", "user4@mail.ru", (new Car("BMW", 1 ))));
 
       List<User> users = userService.listUsers();
       for (User user : users) {
@@ -30,6 +30,8 @@ public class MainApp {
          System.out.println("Email = "+user.getEmail());
          System.out.println("Car = " + user.getCar());
       }
+
+      System.out.println(userService.getUserByCar("priora", 5));
 
       context.close();
    }
