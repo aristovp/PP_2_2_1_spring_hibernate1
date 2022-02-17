@@ -17,7 +17,7 @@ public class MainApp {
       UserService userService = context.getBean(UserService.class);
 
 
-      userService.add(new User("User1", "Lastname1", "user1@mail.ru", (new Car("priora", 3 ))));
+      userService.add(new User("User1", "Lastname1", "user1@mail.ru", (new Car("priora", 5 ))));
       userService.add(new User("User2", "Lastname2", "user2@mail.ru", (new Car("priora", 7 ))));
       userService.add(new User("User3", "Lastname3", "user3@mail.ru", (new Car("ferarri", 10 ))));
       userService.add(new User("User4", "Lastname4", "user4@mail.ru", (new Car("99", 1 ))));
